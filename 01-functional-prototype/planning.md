@@ -14,7 +14,33 @@ This application allows the users to submit scores for a game to a database.
 4. As a user, I want to be notified when my score moves in the leaderboard.
 5. As a user, I want to share my rank on social media so I can brag about my achievements.
 ## Database Schema (ERD)
-TODO
+
+```mermaid
+    erDiagram
+    User ||--o| Leaderboard : submits
+    User {
+       userId int PK
+       userName string
+    }
+    Leaderboard ||--o| User : tracks
+    Leaderboard {
+       addUser string PK
+       removeUser string
+       userRank int
+       userToprank int
+
+     }
+     Score ||--|{ User : achieves
+     Score {
+       score int PK
+       dateSubmitted int
+
+     }
+
+```
+
+---
+       
 ## User Flow Diagram
 TODO
 ## List of Endpoints
