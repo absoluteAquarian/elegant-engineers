@@ -1,5 +1,5 @@
 # Leaderboard Tracker
-This application allows the users to submit scores for a game to a database.
+This application allows the users to submit and track scores for a game to a database.
 ## Feature List
 * Required Features
   * TODO
