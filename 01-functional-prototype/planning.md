@@ -49,9 +49,38 @@ flowchart TD
     B -->|Fills out score form| C[Process submission]
     C -->|Stores Score in Database| D[Redirect to Leaderboard]
     D -->|Leaderboard Updates| A
-    
+
 ```
 
 
 ## List of Endpoints
-TODO
+<!-- This can be subject to change as we work on our project -->
+This section outlines the API and frontend routes used in the leaderboard system.
+
+### Frontend Routes (User-Accessible Pages)
+
+| Method | Endpoint  | Description | Expected Input | Response |
+|--------|----------|-------------|----------------|----------|
+| GET    | `/`      | Displays the leaderboard scores | None | Renders `leaderboard.html` with scores |
+| GET    | `/submit` | Displays the score submission form | None | Renders `submit.html` |
+
+### API Routes (Data Handling via JSON)
+
+| Method | Endpoint      | Description | Expected Input | Response |
+|--------|--------------|-------------|----------------|----------|
+| GET    | `/api/scores` | Gets all scores in JSON format | None | `{ "scores": [{"name": "Alice", "score": 100}, ...] }` |
+| POST   | `/api/scores` | Submits a new score via JSON | `{ "name": "Alice", "score": 100 }` | `{ "success": true, "message": "Score added!" }` |
+
+### Form Handling Route
+
+| Method | Endpoint  | Description | Expected Input | Response |
+|--------|----------|-------------|----------------|----------|
+| POST   | `/submit` | Handles form submission for scores | `name`, `score` (Form Data) | Redirects to `/` |
+
+---
+
+### Additional Notes
+- The **Leaderboard Page (`/`)** fetches and displays scores.
+- The **Score Submission Page (`/submit`)** will allow users to enter their name and score.
+- The **API endpoints (`/api/scores`)** enables external data interaction.
+- The app uses **Flask and SQLite** for backend processing.
