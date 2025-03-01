@@ -42,6 +42,16 @@ This application allows the users to submit and track scores for a game to a dat
 ---
        
 ## User Flow Diagram
-TODO
+
+```mermaid 
+flowchart TD
+    A[User visits leaderboard] -->|Clicks submit score| B(Score Submission Page)
+    B -->|Fills out score form| C[Process submission]
+    C -->|Stores Score in Database| D[Redirect to Leaderboard]
+    D -->|Leaderboard Updates| A
+    
+```
+
+
 ## List of Endpoints
 TODO
