@@ -2,11 +2,16 @@
 This application allows the users to submit and track scores for a game to a database.
 ## Feature List
 * Required Features
-  * TODO
+  * Display a leaderboard of scores
+  * Submission of scores
 * Should Have Features
-  * TODO
+  * User verification of scores
+  * Validation of score ranges
+  * Score removal
+  * Score updating
 * Nice to Have Features
-  * TODO
+  * Separate scoreboards for multiple games
+  * Categories per game, per scoreboard
 ## User Stories
 1. As a user, I want to see my rank on the leaderboard even if I'm not in the top 10, so I can track my own progress.
 2. As a user, I want to view the leaderboard so that I can see how I rank amongst others.
