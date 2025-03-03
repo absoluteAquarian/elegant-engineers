@@ -2,9 +2,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class User(db.Model):
+# Define the Score model
+class Score(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(120), unique=True, nullable=False)
-
-    def __repr__(self):
-        return f'<User {self.username}>'
+    name = db.Column(db.String(50), nullable=False)
+    score = db.Column(db.Integer, nullable=False)

@@ -10,6 +10,10 @@ def create_app(config_filename='config.py'):
 
     db.init_app(app)
 
+    # Create database tables
+    with app.app_context():
+        db.create_all()
+
     app.register_blueprint(main)
 
     return app
