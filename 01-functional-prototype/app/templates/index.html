@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask App</title>
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to My Flask App!</h1>
-    <p>This is a basic Flask app.</p>
+    <div class="container">
+        <h1>Score Leaderboard</h1>
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for (name, score) in scores %}
+                    <tr class="leaderboard-row {% if loop.index == 1 %}first-place{% elif loop.index == 2 %}second-place{% elif loop.index == 3 %}third-place{% endif %}">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ name }}</td>
+                        <td>{{ score }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">No scores available</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
