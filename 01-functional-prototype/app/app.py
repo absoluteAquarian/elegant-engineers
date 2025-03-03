@@ -1,7 +1,7 @@
-from Flask import Flask, request, jsonify, render_template, redirect, url_for
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__main__)
+app = Flask(__name__)
 
 # Configure SQLite database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///leaderboard.db'
@@ -67,6 +67,3 @@ def add_score():
     db.session.commit()
     
     return jsonify({"success": True, "message": "Score added!"})
-
-if __name__ == '__main__':
-    app.run(debug=True)
