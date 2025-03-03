@@ -3,34 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
+    <title>Leaderboard App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Score Leaderboard</h1>
-        <table class="leaderboard">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for (name, score) in scores %}
-                    <tr class="leaderboard-row {% if loop.index == 1 %}first-place{% elif loop.index == 2 %}second-place{% elif loop.index == 3 %}third-place{% endif %}">
-                        <td>{{ loop.index }}</td>
-                        <td>{{ name }}</td>
-                        <td>{{ score }}</td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="3">No scores available</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h1>Welcome to the Leaderboard App!</h1>
+
+        <div class="nav-buttons">
+            <a href="{{ url_for('main.add_user') }}" class="nav-button">Add User</a>
+            <a href="{{ url_for('main.submit_form') }}" class="nav-button">Submit Score</a>
+            <a href="{{ url_for('main.leaderboard') }}" class="nav-button">View Leaderboard</a>
+        </div>
     </div>
 </body>
 </html>

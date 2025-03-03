@@ -13,6 +13,7 @@ def create_app(config_filename='config.py'):
     # Create database tables
     with app.app_context():
         db.create_all()
+        db.session.commit()
 
     app.register_blueprint(main)
 
