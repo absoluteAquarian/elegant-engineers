@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/01-functional-prototype.iml" filepath="$PROJECT_DIR$/.idea/01-functional-prototype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/02-feature-expansion.iml" filepath="$PROJECT_DIR$/.idea/02-feature-expansion.iml" />
     </modules>
   </component>
 </project>
