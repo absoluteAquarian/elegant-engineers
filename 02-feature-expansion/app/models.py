@@ -8,6 +8,7 @@ class Score(db.Model):
     name = db.Column(db.String(50), nullable=False)
     score = db.Column(db.Integer, nullable=False)
     dateSubmitted = db.Column(db.DateTime, nullable=False)
+    imageUrl = db.Column(db.String(255), nullable=False)
 
 class Leaderboard(db.Model):
     userId = db.Column(db.Integer, primary_key=True)

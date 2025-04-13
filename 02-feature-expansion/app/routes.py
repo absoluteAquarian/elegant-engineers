@@ -3,8 +3,23 @@ import sqlite3
 from .models import Score, db, User
 from datetime import datetime
 from sqlalchemy import text
+import requests
 
 main = Blueprint('main', __name__)
+
+def upload_to_imgur(file):
+    client_id = current_app.config['IMGUR_CLIENT_ID']
+    headers = {'Authorization': f'Client-ID {client_id}'}
+    response = requests.post(
+        'https://api.imgur.com/3/image',
+        headers=headers,
+        files={'image': file}
+    )
+    if response.status_code == 200:
+        return response.json()['data']['link']
+    else:
+        print(response.json())
+        return None
 
 # Database connection function
 def get_db_connection():
@@ -25,9 +40,14 @@ def submit_form():
 def submit_score():
     name = request.form.get('name')
     score = request.form.get('score')
+    file = request.files.get('file')
+
+    image_url = None
+    if file and file.filename != '':
+        image_url = upload_to_imgur(file)
 
     if name and score:
-        new_score = Score(name=name, score=int(score), dateSubmitted=datetime.utcnow())
+        new_score = Score(name=name, score=int(score), dateSubmitted=datetime.utcnow(), imageUrl=image_url)
         db.session.add(new_score)
         db.session.commit()
         return redirect(url_for('main.leaderboard'))
@@ -86,11 +106,12 @@ def add_user():
 
 @main.route('/leaderboard')
 def leaderboard():
-    # Fetch the leaderboard entries
+    # Fetch the leaderboard entries including image URLs
     conn = get_db_connection()
     board = conn.execute(text('''
-        SELECT score.name, score.score, score.dateSubmitted
+        SELECT score.name, score.score, score.dateSubmitted, score.image_url
         FROM score
-        ORDER BY score.score DESC''')).fetchall()
+        ORDER BY score.score DESC
+    ''')).fetchall()
     conn.close()
     return render_template('leaderboard.html', leaderboard_scores=board)
