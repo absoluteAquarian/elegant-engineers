@@ -5,9 +5,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 import unittest
 from datetime import datetime
-from flask import url_for
 from app import create_app, db
 from app.models import Score, User
+
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
@@ -74,6 +74,6 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Alice', response.data)
 
+
 if __name__ == '__main__':
     unittest.main()
-

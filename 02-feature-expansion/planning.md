@@ -89,3 +89,21 @@ This section outlines the API and frontend routes used in the leaderboard system
 - The **Score Submission Page (`/submit`)** will allow users to enter their name and score.
 - The **API endpoints (`/api/scores`)** enables external data interaction.
 - The app uses **Flask and SQLite** for backend processing.
+
+# Feature Expansion
+### Feature Description
+Users can now upload a file when submitting a score, and the file is hosted in Imgur.
+
+### Tools used
+`flake8` and `mypy` were used for static and dynamic analysis, and `pytest` was used for running the unit tests.
+
+**Notes:**
+- `flake8` had some issues with `import` statements not being at the top of `tests/test_basic.py`
+  - However, `pytest` would fail unless the `os.sys.path.insert()` call was located where it is, so we opted to ignore the correlating warnings
+- `mypy` had difficulties recognizing the `SQLAlchemy`-related properties in `app/models.py`
+  - Again, since the code does in fact run properly, this was ignored
+
+**Task assignments:**
+- Kortlan was responsible for implementing the new feature
+- Daniel wrote the unit tests
+- John verified the test coverage and analysis, implementing appropriate fixes where necessary

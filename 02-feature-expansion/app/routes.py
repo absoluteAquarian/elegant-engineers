@@ -1,11 +1,11 @@
-from flask import Flask, Blueprint, request, jsonify, render_template, redirect, url_for, current_app
-import sqlite3
-from .models import Score, db, User
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, current_app
+from .models import Score, db
 from datetime import datetime
 from sqlalchemy import text
 import requests
 
 main = Blueprint('main', __name__)
+
 
 def upload_to_imgur(file):
     client_id = current_app.config['IMGUR_CLIENT_ID']
@@ -21,11 +21,12 @@ def upload_to_imgur(file):
         print(response.json())
         return None
 
+
 # Database connection function
 def get_db_connection():
-#    conn = sqlite3.connect('leaderboard.db')
-#    conn.row_factory = sqlite3.Row
-#    return conn
+    # conn = sqlite3.connect('leaderboard.db')
+    # conn.row_factory = sqlite3.Row
+    # return conn
     return db.session
 
 
@@ -79,6 +80,7 @@ def add_score():
 
     return jsonify({"success": True, "message": "Score added!"})
 
+
 @main.route('/')
 def index():
     conn = get_db_connection()
@@ -93,6 +95,7 @@ def index():
     conn.close()
     return render_template('index.html', scores=board)
 
+
 @main.route('/add_user', methods=['GET', 'POST'])
 def add_user():
     if request.method == 'POST':
@@ -103,6 +106,7 @@ def add_user():
         conn.close()
         return redirect(url_for('main.index'))
     return render_template('add_user.html')
+
 
 @main.route('/leaderboard')
 def leaderboard():
