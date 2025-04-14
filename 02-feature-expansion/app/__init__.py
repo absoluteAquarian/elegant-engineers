@@ -3,6 +3,7 @@ from .config import Config
 from .models import db
 from .routes import main
 from dotenv import load_dotenv
+from sqlalchemy import text
 
 load_dotenv()
 

@@ -109,7 +109,7 @@ def leaderboard():
     # Fetch the leaderboard entries including image URLs
     conn = get_db_connection()
     board = conn.execute(text('''
-        SELECT score.name, score.score, score.dateSubmitted, score.image_url
+        SELECT score.name, score.score, score.dateSubmitted, score.imageUrl
         FROM score
         ORDER BY score.score DESC
     ''')).fetchall()
