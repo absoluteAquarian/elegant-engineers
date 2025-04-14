@@ -19,7 +19,7 @@ class AppTestCase(unittest.TestCase):
         with self.app.app_context():
             db.create_all()
 
-            user = User(userId=1, userName='TestUser')
+            user = User(userName='TestUser')
             db.session.add(user)
             score = Score(name='Alice', score=100, dateSubmitted=datetime.utcnow())
             db.session.add(score)
