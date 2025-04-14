@@ -12,6 +12,7 @@ def create_app(config_filename='config.py'):
     app.config.from_pyfile(config_filename)  # Load instance config
 
     app.config['IMGUR_CLIENT_ID'] = 'c6f459f46dce695'
+    
     db.init_app(app)
 
     # Create database tables
