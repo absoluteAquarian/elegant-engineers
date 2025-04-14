@@ -45,3 +45,6 @@ Score submission page:
 
 Leaderboard page:
 ![image](https://github.com/user-attachments/assets/70b89832-8389-461e-8afe-420ae94d636a)
+
+_Note: due to time constraints and Imgur being restrictive with which third-party website can directly use its images' links, a screenshot of the new feature cannot be supplied._  
+_However, the image does get uploaded to Imgur correctly, and a valid link to the Imgur submission is stored within the database._
