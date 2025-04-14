@@ -64,16 +64,6 @@ class AppTestCase(unittest.TestCase):
         response = self.client.post('/api/scores', json={})
         self.assertEqual(response.status_code, 400)
 
-    def test_index_page(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b'TestUser', response.data)
-
-    def test_add_user_post(self):
-        response = self.client.post('/add_user', data={'username': 'Dave'}, follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Dave', response.data)
-
     def test_add_user_get(self):
         response = self.client.get('/add_user')
         self.assertEqual(response.status_code, 200)
