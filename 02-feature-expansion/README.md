@@ -44,9 +44,4 @@ Score submission page:
 ![image](https://github.com/user-attachments/assets/84a2fc32-8071-4b96-a002-afed44ac33f2)
 
 Leaderboard page:
-![image](https://github.com/user-attachments/assets/276d15ce-7465-4ea1-899a-208b679f04ef)
-
-_Note: due to time constraints and Imgur being restrictive with which third-party website can directly use its images' links, the image will not render in the application._  
-_However, the image does get uploaded to Imgur correctly, and a valid link to the Imgur submission is stored within the database._
-
-![image](https://github.com/user-attachments/assets/a6c20e28-195f-4a65-a892-69b20d04e069)
+![image](https://github.com/user-attachments/assets/dcef0af8-ed45-4042-ae7f-290cc4e8fdf0)
