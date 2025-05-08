@@ -97,11 +97,21 @@ Users can now upload a file when submitting a score, and the file is hosted in I
 ### Tools used
 `flake8` and `mypy` were used for static and dynamic analysis, and `pytest` was used for running the unit tests.
 
+**flake8:**
+![image](https://github.com/user-attachments/assets/c962dca6-d98c-4790-84d4-77f593fa3302)
+
+**mypy:**
+![image](https://github.com/user-attachments/assets/bba6f2f6-2098-434e-a0ef-a47d250a48e6)
+
+**pytest:**
+![image](https://github.com/user-attachments/assets/ff7b3ec0-6d93-49e5-8707-67c7fd6b0d32)
+
 **Notes:**
 - `flake8` had some issues with `import` statements not being at the top of `tests/test_basic.py`
   - However, `pytest` would fail unless the `os.sys.path.insert()` call was located where it is, so we opted to ignore the correlating warnings
 - `mypy` had difficulties recognizing the `SQLAlchemy`-related properties in `app/models.py`
   - Again, since the code does in fact run properly, this was ignored
+- `cloudinary` lacks type stubs, so `mypy` could not analyze its usage
 
 **Task assignments:**
 - Kortlan was responsible for implementing the new feature
