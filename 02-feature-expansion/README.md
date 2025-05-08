@@ -28,6 +28,11 @@ Due to the simplicity of the application, there isn't much else to describe here
 The intended functionality would be that scores can only be submitted for existing users, but difficulties with the database API resulted in this being only semi-completed.  
 However, the main feature — the leaderboard — is completely functional.
 
+## How to use new feature: File Submission
+When entering the submit a score page, you will now be given the option to upload a file of your score to the leaderboard.
+
+This serves the purpose of providing proof of your score to the scoreboard, reminiscant of real life speedrun boards to record scores and times
+
 ## Screenshots
 Initial page:
 ![image](https://github.com/user-attachments/assets/05617847-2039-4097-9dd5-65bff79b9a28)
@@ -36,7 +41,7 @@ User Registration page:
 ![image](https://github.com/user-attachments/assets/97a9f822-bf63-464b-af78-1e03781bbc73)
 
 Score submission page:
-![image](https://github.com/user-attachments/assets/1bc47cfc-8395-4258-9201-f6d9f6d5610b)
+![image](https://github.com/user-attachments/assets/84a2fc32-8071-4b96-a002-afed44ac33f2)
 
 Leaderboard page:
-![image](https://github.com/user-attachments/assets/70b89832-8389-461e-8afe-420ae94d636a)
+![image](https://github.com/user-attachments/assets/dcef0af8-ed45-4042-ae7f-290cc4e8fdf0)

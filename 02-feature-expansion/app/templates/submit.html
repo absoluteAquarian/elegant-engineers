@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Submit Your Score</h1>
 
-        <form action="{{ url_for('main.submit_score') }}" method="POST">
+        <form action="{{ url_for('main.submit_score') }}" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Username:</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your username">
@@ -22,8 +22,17 @@
             </div>
 
             <div class="form-group">
+        <label for="file">File Upload</label>
+        <input type="file" name="file">
+        
+            </div>
+            <div class="form-group">
                 <button type="submit" class="btn">Submit Score</button>
             </div>
+           <div class="form-group">
+        
+        
+        </div>
         </form>
 
         <div class="link-back">
