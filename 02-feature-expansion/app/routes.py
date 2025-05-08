@@ -3,6 +3,8 @@ from .models import Score, db
 from datetime import datetime
 from sqlalchemy import text
 import requests
+import cloudinary
+import cloudinary.uploader
 
 main = Blueprint('main', __name__)
 
@@ -19,6 +21,15 @@ def upload_to_imgur(file):
         return response.json()['data']['link']
     else:
         print(response.json())
+        return None
+
+
+def upload_to_cloudinary(file):
+    try:
+        response = cloudinary.uploader.upload(file)
+        return response['secure_url']
+    except Exception as e:
+        print(f"Upload failed: {e}")
         return None
 
 
@@ -45,7 +56,7 @@ def submit_score():
 
     image_url = None
     if file and file.filename != '':
-        image_url = upload_to_imgur(file)
+        image_url = upload_to_cloudinary(file)
 
     if name and score:
         new_score = Score(name=name, score=int(score), dateSubmitted=datetime.utcnow(), imageUrl=image_url)
