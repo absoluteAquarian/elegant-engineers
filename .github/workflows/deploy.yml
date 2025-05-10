@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    working-directory: 03-final-development-pipeline-integration
 
     steps:
       # Step 1: Check out the code from the repository
@@ -27,18 +26,21 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest flake8
+        working-directory: 03-final-development-pipeline-integration
 
       # Step 4: Run pytest
       - name: Run tests with pytest
         run: |
           pytest
         continue-on-error: false
+        working-directory: 03-final-development-pipeline-integration
 
       # Step 5: Run flake8
       - name: Run flake8 for code style checks
         run: |
           flake8 .
         continue-on-error: false
+        working-directory: 03-final-development-pipeline-integration
 
       # Step 6: Trigger Render Deploy Hook (if tests and linting pass)
       - name: Trigger Render Deploy Hook
