@@ -8,9 +8,10 @@ import os
 import cloudinary
 
 cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
+    # os.getenv() works on local builds, but not deployment?
+    cloud_name='dtrhkewms',
+    api_key='377774626274684',
+    api_secret='KrsCIkhslhELZua8em7wTAIoxSE'
 )
 
 load_dotenv()
