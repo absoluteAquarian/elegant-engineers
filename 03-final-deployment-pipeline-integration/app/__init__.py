@@ -4,7 +4,7 @@ from .models import db
 from .routes import main
 from dotenv import load_dotenv
 
-#import os
+# import os
 import cloudinary
 
 cloudinary.config(
