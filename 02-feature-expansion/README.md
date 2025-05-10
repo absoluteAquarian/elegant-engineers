@@ -8,7 +8,7 @@ This simple application allows users to create usernames and submit scores for t
     ```
 2. Navigate to this directory
     ```commandline
-    cd 01-functional-prototype
+    cd 02-feature-expansion
     ```
 3. Install the dependencies
     ```commandline
