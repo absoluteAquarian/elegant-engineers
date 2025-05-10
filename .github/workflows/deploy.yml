@@ -1,7 +1,9 @@
 name: Deploy 03-final-development-pipeline-integration to Render
 
 on:
-  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
 
 jobs:
   deploy:
