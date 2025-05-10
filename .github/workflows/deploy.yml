@@ -1,4 +1,4 @@
-name: Deploy to Render
+name: Deploy 03-final-development-pipeline-integration to Render
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    working-directory: 03-final-development-pipeline-integration
 
     steps:
       # Step 1: Check out the code from the repository
@@ -28,7 +29,7 @@ jobs:
       # Step 4: Run pytest
       - name: Run tests with pytest
         run: |
-          pytest --maxfail=1 --disable-warnings -q
+          pytest
         continue-on-error: false
 
       # Step 5: Run flake8
