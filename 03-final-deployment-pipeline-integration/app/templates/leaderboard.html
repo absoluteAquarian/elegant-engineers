@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Leaderboard</h1>
+
+        <!-- Table to display leaderboard -->
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Date Submitted</th>
+                    <th>Image</th>  <!-- New Image Column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for (username, score, dateSubmitted, image_url) in leaderboard_scores %}
+                    <tr class="leaderboard-row">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ username }}</td>
+                        <td>{{ score }}</td>
+                        <td>{{ dateSubmitted }}</td>
+                        <td>
+                            {% if image_url %}
+                                <img src="{{ image_url }}" alt="User Image" style="max-height: 80px;">
+                            {% else %}
+                                No Image
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No scores available</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="link-back">
+            <a href="{{ url_for('main.index') }}" class="back-link">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
